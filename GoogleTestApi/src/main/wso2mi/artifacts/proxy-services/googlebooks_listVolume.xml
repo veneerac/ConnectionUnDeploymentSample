@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="googlebooks_listVolume" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log level="custom">
+                <property name="Info" value="Google Books Proxy: Received incoming API request"/>
+            </log>
+            <property name="searchQuery" expression="json-eval($.searchQuery)"/>
+            <googleBooks.listVolume>
+                <searchQuery>'{$ctx:searchQuery}'</searchQuery>
+            </googleBooks.listVolume>
+            <log level="custom">
+                <property name="Info" value="Google Books Proxy: Invoking listVolume operation with searchQuery"/>
+            </log>
+            <respond description="Respond"/>
+        </inSequence>
+        <faultSequence/>
+    </target>
+</proxy>

@@ -1,0 +1,4 @@
+org/wso2/carbon/esb/connector/googleBooksConnector.class
+org/wso2/carbon/esb/connector/ConnectionHandler.class
+org/wso2/carbon/esb/connector/deploy/ConnectorUndeployObserver.class
+org/wso2/carbon/esb/connector/utils/Const.class
