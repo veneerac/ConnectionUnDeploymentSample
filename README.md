@@ -23,7 +23,7 @@ This sample shows how a WSO2 Micro Integrator connector can **shut down its conn
 
 ## Adapting it to your connector
 
-`Const.java` currently uses the File Connector values (`CONNECTOR_LIBRARY_NAME = "file-connector"`, `CONNECTOR_NAME = "file"`). Change these to your connector's library name and connection name, otherwise the observer will not match your connector when it is undeployed.
+`Const.java` matches the Google Books sample (`CONNECTOR_LIBRARY_NAME = "googleBooks-connector"`, `CONNECTOR_NAME = "googleBooks"`). To reuse the observer in another connector, set these to your connector's library file name prefix and the name its connections are registered under.
 
 ## Build the connector
 
@@ -32,11 +32,11 @@ cd org.wso2.carbon.esb.connector.googlebooks
 mvn clean install
 ```
 
-The connector ZIP is created under `target/`. Java 8 or later and access to the WSO2 Maven repository are required.
+The connector ZIP is created at `target/googleBooks-connector-1.0.0.zip`. Tested with JDK 21 and Maven 3; access to the WSO2 Maven repository is required.
 
 ## Try it
 
-1. Copy the built connector ZIP to `GoogleTestApi/src/main/wso2mi/resources/connectors/` (a built copy is already included).
+1. Copy the built connector ZIP to `GoogleTestApi/src/main/wso2mi/resources/connectors/` (an up-to-date built copy is already included).
 2. Open `GoogleTestApi` in VS Code with the WSO2 Integrator: MI extension, then build and run it.
 3. Invoke the `googlebooks_listVolume` proxy with a JSON body such as `{"searchQuery": "integration"}`.
 4. Undeploy the CApp or remove the connector, and check the MI logs for:
